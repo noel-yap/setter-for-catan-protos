@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package noelyap.setterforcatan;
+
+option java_package = "noelyap.setterforcatan.protogen";
+
+import "noelyap/setterforcatan/configuration.proto";
+import "noelyap/setterforcatan/marker.proto";
+
+message Board {
+  repeated Configuration configurations = 1;
+  repeated Marker markers = 2;
+}

@@ -4,7 +4,7 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "coordinate.proto";
+import "noelyap/setterforcatan/coordinate.proto";
 
 enum Type {
   NONE = 0;

@@ -4,10 +4,10 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "chit.proto";
-import "coordinate.proto";
-import "marker.proto";
-import "tile.proto";
+import "noelyap/setterforcatan/chit.proto";
+import "noelyap/setterforcatan/coordinate.proto";
+import "noelyap/setterforcatan/marker.proto";
+import "noelyap/setterforcatan/tile.proto";
 
 message CoordinateTilesMapping {
   string coordinates_name = 1;

@@ -4,8 +4,8 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "configuration.proto";
-import "marker.proto";
+import "noelyap/setterforcatan/configuration.proto";
+import "noelyap/setterforcatan/marker.proto";
 
 message Board {
   repeated Configuration configurations = 1;

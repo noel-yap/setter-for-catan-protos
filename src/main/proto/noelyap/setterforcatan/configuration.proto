@@ -4,9 +4,9 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "chit.proto";
-import "coordinate.proto";
-import "tile.proto";
+import "noelyap/setterforcatan/chit.proto";
+import "noelyap/setterforcatan/coordinate.proto";
+import "noelyap/setterforcatan/tile.proto";
 
 message Configuration {
   Coordinate coordinate = 1;

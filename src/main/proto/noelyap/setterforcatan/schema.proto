@@ -4,7 +4,7 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "scenario.proto";
+import "noelyap/setterforcatan/scenario.proto";
 
 message Schema {
   Scenario scenario = 1;

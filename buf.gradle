@@ -1,0 +1,56 @@
+apply plugin: 'com.google.osdetector'
+
+final artifactCoordinate = 'bufbuild:buf:0.23.0'
+
+task downloadBuf {
+  final outputFile = file("${buildDir}/Downloads/buf")
+
+  outputs.file outputFile
+
+  doLast {
+    final osName = System.getProperty('os.name')
+    final cpuArch = osdetector.arch
+
+    def (bufGroup, bufArtifact, bufVersion) = artifactCoordinate.split(':')
+
+    outputFile << new URL("https://github.com/${bufGroup}/${bufArtifact}/releases/download/v${bufVersion}/buf-${osName}-${cpuArch}").getBytes()
+    outputFile.setExecutable(true)
+  }
+}
+
+task bufImageBuild(type: Exec) {
+  dependsOn ':downloadBuf', ':bufPreCheckLint'
+
+  final outputFilename = 'buf-image.json'
+
+  inputs.files sourceSets.main.proto
+  outputs.file file(outputFilename)
+
+  workingDir project.rootDir
+  executable tasks.downloadBuf.outputs.files.getSingleFile()
+  args = ['image', 'build', '-o', outputFilename]
+}
+
+assemble.dependsOn(tasks.bufImageBuild)
+
+task bufPreCheckLint(type: Exec) {
+  dependsOn ':downloadBuf', ':extractProto', ':extractIncludeProto', ':extractTestProto', ':extractIncludeTestProto', ':protopSync'
+
+  workingDir project.rootDir
+  executable tasks.downloadBuf.outputs.files.getSingleFile()
+  args = ['check', 'lint']
+
+  onlyIf {
+    tasks.bufImageBuild.outputs.files.getSingleFile().exists()
+  }
+}
+
+task bufCheckLint(type: Exec) {
+  dependsOn ':downloadBuf', ':extractProto', ':extractIncludeProto', ':extractTestProto', ':extractIncludeTestProto', ':protopSync'
+
+  workingDir project.rootDir
+  executable tasks.downloadBuf.outputs.files.getSingleFile()
+  args = ['check', 'lint']
+}
+
+check.dependsOn(tasks.bufCheckLint)

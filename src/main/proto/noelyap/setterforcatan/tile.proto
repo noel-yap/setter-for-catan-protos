@@ -4,7 +4,7 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
-import "coordinate.proto";
+import "noelyap/setterforcatan/coordinate.proto";
 
 message Tile {
   enum Type {
@@ -42,7 +42,7 @@ message Tile {
   }
 
   Type type = 1;
-  repeated Vertex.Position specialVertices = 2;
+  repeated Vertex.Position special_vertices = 2;
 }
 
 message Tiles {

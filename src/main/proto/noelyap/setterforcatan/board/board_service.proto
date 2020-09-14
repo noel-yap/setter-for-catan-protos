@@ -7,10 +7,10 @@ package noelyap.setterforcatan.board;
 
 option java_package = "noelyap.setterforcatan.board.protogen";
 
-import "board.proto";
-import "grader_strategy.proto";
-import "schema.proto";
-import "specification.proto";
+import "noelyap/setterforcatan/board.proto";
+import "noelyap/setterforcatan/grader_strategy.proto";
+import "noelyap/setterforcatan/schema.proto";
+import "noelyap/setterforcatan/specification.proto";
 
 message GenerateBoardRequest {
   oneof arg {
@@ -38,5 +38,5 @@ message GenerateBoardResponse {
 }
 
 service BoardService {
-  rpc generateBoard(GenerateBoardRequest) returns (GenerateBoardResponse);
+  rpc GenerateBoard(GenerateBoardRequest) returns (GenerateBoardResponse);
 }

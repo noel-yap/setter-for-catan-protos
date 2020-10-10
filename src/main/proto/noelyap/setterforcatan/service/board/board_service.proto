@@ -5,7 +5,7 @@ import "google/api/annotations.proto";
 
 package noelyap.setterforcatan.board;
 
-option java_package = "noelyap.setterforcatan.board.protogen";
+option java_package = "noelyap.setterforcatan.service.board.protogen";
 
 import "noelyap/setterforcatan/board.proto";
 import "noelyap/setterforcatan/grader_strategy.proto";

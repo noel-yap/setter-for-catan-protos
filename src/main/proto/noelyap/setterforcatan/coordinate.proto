@@ -36,7 +36,9 @@ message Face {
 message Coordinate {
   int32 x = 1;
   int32 y = 2;
+  // TODO: Use bitfield to encode edge positions
   repeated Edge.Position edge_positions = 3;
+  // TODO: Use bitfield to encode vertex positions
   repeated Vertex.Position vertex_positions = 4;
   Face.Position face_position = 5;
 }

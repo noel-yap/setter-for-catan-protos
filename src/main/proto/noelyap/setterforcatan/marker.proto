@@ -6,14 +6,14 @@ option java_package = "noelyap.setterforcatan.protogen";
 
 import "noelyap/setterforcatan/coordinate.proto";
 
-enum Type {
-  NONE = 0;
-  GREAT_BRIDGE_SETTLEMENT_REQUIREMENT = 1;
-  GREAT_WALL_SETTLEMENTS_REQUIREMENT = 2;
-  SETUP_SETTLEMENTS_PROHIBITION = 3;
-}
-
 message Marker {
+  enum Type {
+    NONE = 0;
+    GREAT_BRIDGE_SETTLEMENT_REQUIREMENT = 1;
+    GREAT_WALL_SETTLEMENTS_REQUIREMENT = 2;
+    SETUP_SETTLEMENTS_PROHIBITION = 3;
+  }
+
   Type type = 1;
   repeated Coordinate coordinates = 2;
 }

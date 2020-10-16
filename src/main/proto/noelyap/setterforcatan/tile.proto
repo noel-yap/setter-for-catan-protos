@@ -14,7 +14,8 @@ message Tile {
     CHEVRON = 3; // 2 adjacent edges (eg FISHERY)
     RECTANGLE = 4; // 2 opposite edges (eg DEVELOPMENT_CARD)
     TRIANGLE = 5; // 1 edge (eg GENERIC_PORT)
-    POINT = 6; // 0 edges (eg VICTORY_POINT)
+    POINT = 6; // 0 edges (eg CHIT)
+    POLYMORPHIC = 7; // any number of edges (eg RIVER)
   }
 
   enum Type {

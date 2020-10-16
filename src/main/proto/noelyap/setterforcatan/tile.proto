@@ -7,6 +7,16 @@ option java_package = "noelyap.setterforcatan.protogen";
 import "noelyap/setterforcatan/coordinate.proto";
 
 message Tile {
+  enum Shape {
+    HEXAGON = 0; // all 6 edges (eg DESERT)
+    PENTAGON = 1; // 4 adjacent edges (reserved for possible future use)
+    TRAPEZOID = 2; // 3 adjacent edges (reserved for possible future use)
+    CHEVRON = 3; // 2 adjacent edges (eg FISHERY)
+    RECTANGLE = 4; // 2 opposite edges (eg DEVELOPMENT_CARD)
+    TRIANGLE = 5; // 1 edge (eg GENERIC_PORT)
+    POINT = 6; // 0 edges (eg VICTORY_POINT)
+  }
+
   enum Type {
     UNDEFINED = 0;
 
@@ -42,6 +52,7 @@ message Tile {
   }
 
   Type type = 1;
+  Shape shape = 3;
   repeated Vertex.Position special_vertices = 2;
 }
 

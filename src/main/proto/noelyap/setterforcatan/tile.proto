@@ -4,9 +4,21 @@ package noelyap.setterforcatan;
 
 option java_package = "noelyap.setterforcatan.protogen";
 
+import "google/protobuf/descriptor.proto";
+
 import "noelyap/setterforcatan/coordinate.proto";
 
+extend google.protobuf.EnumValueOptions {
+  string name = 1009;
+}
+
 message Tile {
+  enum ReservedName {
+    DESERT_OR_LAKE_NAME = 0 [(name) = "«DESERT»∨«LAKE»"];
+    LAKE_NAME = 1 [(name) = "«LAKE»"];
+    FISHERY_NAME = 2 [(name) = "«FISHERY»"];
+  }
+
   enum Shape {
     HEXAGON = 0; // all 6 edges (eg DESERT)
     PENTAGON = 1; // 4 adjacent edges (reserved for possible future use)

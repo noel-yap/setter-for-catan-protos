@@ -14,9 +14,9 @@ extend google.protobuf.EnumValueOptions {
 
 message Tile {
   enum ReservedName {
-    DESERT_OR_LAKE_NAME = 0 [(name) = "«DESERT»∨«LAKE»"];
-    LAKE_NAME = 1 [(name) = "«LAKE»"];
-    FISHERY_NAME = 2 [(name) = "«FISHERY»"];
+    FISHERMEN_OF_CATAN_DESERT_CONVERTIBLE_TO_LAKE = 0 [(name) = "«DESERT»→«LAKE»"];
+    FISHERMEN_OF_CATAN_LAKE_CONVERTED_FROM_DESERT = 1 [(name) = "«LAKE»←«DESERT»"];
+    FISHERMEN_OF_CATAN_FISHERY = 2 [(name) = "«FISHERY»←"];
   }
 
   enum Shape {
